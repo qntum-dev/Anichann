@@ -16,9 +16,12 @@ const animeid = () => {
         setLoading(true);
         const anilist = new META.Anilist();
         await anilist.fetchAnimeInfo(id).then((data) => {
-          setAni(data);
-          setLoading(false);
-          return data;
+          if(data !== undefined){
+
+            setAni(data);
+            setLoading(false);
+            return data;
+          }
         });
       } catch (error) {
         console.log(error);
